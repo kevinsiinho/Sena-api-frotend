@@ -1,0 +1,24 @@
+<div class="info">
+    <h1>Listado de Cursos</h1>
+    <div class="container">
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" *ngFor="let curso of cursos; let i = index">
+          <div class="card" style="width: 18rem;">
+            <img src="assets/new/n1.jpg" class="d-block w-100" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{curso.nombre}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a class="editar btn btn-warning" *ngIf="this.usuario.id===curso.creadorId" [routerLink]="['/uptade-curso/',curso.id]"><i class="bi bi-pencil"></i></a>
+                <a class="eliminar btn btn-danger" *ngIf="this.usuario.id===curso.creadorId"  (click)="Eliminar(curso.id!)"><i class="bi bi-x-lg"></i></a>
+                <a class="eliminar btn btn-success" [routerLink]="['/curso/seccion/contenido/',curso.id]"><i class="bi bi-play"></i></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+</div>
+

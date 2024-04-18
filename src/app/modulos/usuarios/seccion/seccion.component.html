@@ -1,0 +1,49 @@
+<div class="info">
+  <h1>Sección</h1>
+<div class="cuerpo">
+  <div class="row g-3 w-75">
+    <button class="btn btn-primary" type="button" (click)="this.Mostrar()">Crear Sección</button>
+  <div *ngIf="this.mostrar===true">
+    <h3>Crear una nueva Sección</h3>
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label ">Nombre</label>
+    <input type="text" class="form-control" [(ngModel)]="this.seccion.nombre">
+  </div>
+    <div class="col-md-2">
+      <label for="validationDefault04" class="form-label">Posición</label>
+      <select class="form-select" [(ngModel)]="this.seccion.posicion">
+        <option value={{cant}} *ngFor="let cant of this.cantidad">{{cant}}</option>
+      </select>
+    </div>
+  <div class="col-md-4">
+    <button class="btn btn-success btnSeccion" type="button" (click)="this.NuevaSeccion()"> <mat-icon>save</mat-icon></button>
+  </div>
+</div>
+  <div class="col-12">
+    <table class="table">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Posicion</th>
+          <th scope="col">Actualizar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let seccion of this.secciones">
+          <td>{{seccion.nombre}}</td>
+          <td>{{seccion.posicion}}</td>
+          <td> <button class="btn btn-warning" type="button" (click)="this.NuevaSeccion()"><mat-icon>update</mat-icon></button></td>
+          <td> <button class="btn btn-danger" type="button" (click)="this.Eliminar(seccion.id!)"><mat-icon>delete</mat-icon></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+

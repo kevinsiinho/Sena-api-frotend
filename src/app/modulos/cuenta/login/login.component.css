@@ -1,0 +1,41 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(180, 223, 239, 0.231372549);
+}
+
+.login-form {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.login-form h2 {
+  text-align: center;
+}
+.login-form .form-label {
+  font-weight: bold;
+}
+.login-form .btn-primary {
+  width: 100%;
+  margin-top: 20px;
+}
+.login-form .links {
+  margin-top: 10px;
+}
+.login-form .links a {
+  text-decoration: none;
+  color: #007bff;
+}
+.login-form .links a + a {
+  margin-left: 10px;
+}
+
+.alert {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}/*# sourceMappingURL=login.component.css.map */

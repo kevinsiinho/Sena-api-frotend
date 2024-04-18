@@ -1,0 +1,25 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(180, 223, 239, 0.231372549);
+}
+
+.form {
+  width: 700px;
+  border: solid 1px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.alert {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}/*# sourceMappingURL=registro.component.css.map */

@@ -1,0 +1,57 @@
+<div class="info">
+    <h1>Perfil</h1>
+    <div class="cuerpo">
+        <div class="container">
+            <div class="input-group mb-3 w-50">
+                <span class="input-group-text" id="basic-addon1">Tipo de cuenta</span>
+                <input type="text" class="form-control" disabled  [(ngModel)]="this.usuario.tipoCuenta">
+            </div>
+            <div class="input-group mb-3 w-50">
+                <span class="input-group-text" id="basic-addon1">Tipo de ID</span>
+                <input type="text" class="form-control" disabled  [(ngModel)]="this.usuario.tipoid">
+            </div>
+            <div class="input-group mb-3 w-50">
+                <span class="input-group-text" id="basic-addon1">Número de ID</span>
+                <input type="number" class="form-control" disabled  [(ngModel)]="this.usuario.id">
+            </div>
+            <div class="input-group mb-3 w-50">
+                <span class="input-group-text" id="basic-addon1">Apellidos</span>
+                <input type="text" class="form-control"  [(ngModel)]="this.usuario.apellidos">
+            </div>
+            <div class="input-group mb-3 w-50">
+                <span class="input-group-text" id="basic-addon1">Nombres</span>
+                <input type="text" class="form-control" [(ngModel)]="this.usuario.nombres">
+            </div>
+            <div class="input-group mb-3 w-50">
+                <span class="input-group-text" id="basic-addon1">Email</span>
+                <input type="email" class="form-control" disabled  [(ngModel)]="this.usuario.email">
+            </div>
+            <div class="input-group mb-3 w-50 row form" *ngIf="this.btnPassword===true">
+              <div class="col-md-6">
+                <label for="validationDefault01" class="form-label">Contraseña</label>
+                <input type="password" class="form-control"  [(ngModel)]="this.password">
+              </div>
+              <div class="col-md-6">
+                <label for="validationDefault02" class="form-label">Repite la Contraseña</label>
+                <input type="password" class="form-control" [(ngModel)]="this.password2">
+              </div>
+              <div class="btnactualizar mb-3 w-100 row form">
+                <button class="btn btn-success" (click)="this.UpdatePassword()">GUARDAR</button>
+              </div>
+
+            </div>
+            <div class="input-group mb-3 w-50">
+                <button class="editar btn btn-warning" (click)="this.Actualizar()"><i class="bi bi-pencil"></i></button>
+                <button class="eliminar btn btn-danger" (click)="this.EliminarUsuario()"><i class="bi bi-x-lg"></i></button>
+                <button class="eliminar btn btn-primary" (click)="this.MostrarInputsPassword()">Actualzar Contraseña</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="alert alert-success" role="alert" *ngIf="this.alerta===true">
+      {{this.mensaje}}
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="this.alerta===false">
+    {{this.mensaje}}
+  </div>
+</div>

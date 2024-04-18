@@ -1,0 +1,33 @@
+<div class="info">
+  <h1>Listado de cursos disponibles</h1>
+  <div class="cuerpo">
+      <div class="container">
+          <table class="table table-hover table-condensed table-bordered ">
+              <thead class="table-primary">
+                 <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID del curso</th>
+                    <th scope="col">Fecha de creación</th>
+                    <th scope="col">Ultima actualización</th>
+                    <th scope="col">Nombre del curso</th>
+                    <th scope="col">Inscriptos</th>
+                    <th scope="col">Añadir</th>
+                 </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                  <tr *ngFor="let curso of this.cursos;let i=index">
+                      <td>{{i+1}}</td>
+                      <td>{{curso.id}}</td>
+                      <td>{{curso.fechaCreacion}}</td>
+                      <td>{{curso.fechaActualizacion}}</td>
+                      <td>{{curso.nombre}}</td>
+                      <td>{{curso.participantes.length}}</td>
+                      <td>
+                      <button class="editar btn btn-warning" (click)="this.add(curso.id!)"><i class="bi bi-file-plus"></i></button>
+                  </tr>
+              </tbody>
+           </table>
+      </div>
+  </div>
+</div>
+

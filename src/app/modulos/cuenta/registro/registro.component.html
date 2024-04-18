@@ -1,0 +1,67 @@
+<div class="register-container">
+  <div class="row g-3 form">
+    <h2 class="mb-4">Registrarme</h2>
+    <div class="col-md-6">
+      <label for="validationDefault04" class="form-label">Tipo de Identificación</label>
+      <select class="form-select"  [(ngModel)]="this.usuario.tipoid">
+        <option value="Cedula Ciudadania">Cédula de ciudadanía</option>
+        <option value="Cedula-extranjeria">Cédula de extranjería</option>
+        <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+        <option value="Pasaporte">Pasaporte</option>
+        <option value="Registro Civil">Registro civil</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="validationDefault02" class="form-label">Número de Identificación</label>
+      <input type="number" class="form-control" [(ngModel)]="this.usuario.id">
+    </div>
+    <div class="col-md-6">
+      <label for="validationDefault01" class="form-label">Nombres</label>
+      <input type="text" class="form-control"  [(ngModel)]="this.usuario.nombres">
+    </div>
+    <div class="col-md-6">
+      <label for="validationDefault02" class="form-label">Apellidos</label>
+      <input type="text" class="form-control" [(ngModel)]="this.usuario.apellidos">
+    </div><div class="col-md-6">
+      <label for="validationDefault03" class="form-label">Correo Electrónico</label>
+      <input type="email" class="form-control"  [(ngModel)]="this.usuario.email" name="email" #email="ngModel" required>
+    </div>
+    <div class="col-md-6">
+      <label for="validationDefault04" class="form-label">Tipo De Cuenta</label>
+      <select class="form-select" [(ngModel)]="this.usuario.tipoCuenta">
+        <option value="docente">Docente</option>
+        <option value="estudiante">Estudiante</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="validationDefault01" class="form-label">Contraseña</label>
+      <input type="password" class="form-control"  [(ngModel)]="this.password">
+    </div>
+    <div class="col-md-6">
+      <label for="validationDefault02" class="form-label">Repite la Contraseña</label>
+      <input type="password" class="form-control" [(ngModel)]="this.usuario.password">
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="this.checkbox"  id="checkbox">
+        <label class="form-check-label" for="invalidCheck2">
+          Acepto términos y condiciones.
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="button" (click)="this.nuevoUsuario()">Enviar datos</button>
+    </div>
+    <div class="mt-3">
+      <a href="/login" class="text-decoration-none">¿Ya tienes una cuenta? Inicia sesión</a>
+    </div>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="this.alerta===true">
+      {{this.mensaje}}
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="this.alerta===false">
+    {{this.mensaje}}
+  </div>
+</div>
+

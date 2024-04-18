@@ -1,0 +1,36 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar class="example-toolbar">
+      <button class="btn-menu" mat-icon-button (click)="snav.toggle()"><mat-icon class="icono-menu">menu</mat-icon></button>
+      <h1 class="example-app-name">Nombre de la página</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [(opened)]="opened" [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+        <div class="accordion-item" mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">
+          <h2 class="accordion-header" id="headingTwo">
+            <button *ngIf="nav.Nopermiso!==this.usuario.tipoCuenta" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"  [attr.data-bs-target]="'#'+nav.name" aria-expanded="false" aria-controls="collapseTwo">
+              <mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} <mat-icon>{{nav.bajar}}</mat-icon>
+            </button>
+          </h2>
+          <div id={{nav.name}} class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <mat-nav-list>
+                <a mat-list-item  [routerLink]="nav.route" *ngFor="let nav of nav.submenu">
+                  <mat-icon>{{nav.icon}}</mat-icon>
+                   {{nav.name}}</a>
+              </mat-nav-list>
+
+            </div>
+          </div>
+        </div>
+
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

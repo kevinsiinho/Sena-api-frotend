@@ -1,0 +1,51 @@
+<div class="info">
+  <div class="container">
+    <div class="cuerpo">
+      <div class="card" style="width: 80%;">
+        <img src="assets/new/n1.jpg" class="d-block w-100 h-50" alt="...">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item nombre-curso">{{curso.nombre}}</li>
+          <li class="list-group-item">Descripción: <span> {{curso.descripcion}}</span> </li>
+          <li class="list-group-item">Fecha de Cración: <span> {{curso.fechaCreacion}}</span> </li>
+          <li class="list-group-item">Ultima Actualización: <span> {{curso.fechaActualizacion}}</span> </li>
+        </ul>
+      </div>
+</div>
+
+  <!--Contenidos-->
+  <ul class="list-group  list-contenido" *ngFor="let seccion of this.todo">
+    <li class="list-group-item  active" aria-current="true">{{seccion.nombre}} Fecha de Creación: {{seccion.fechaCreacion}}</li>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item" *ngFor="let item of seccion.publicaciones">
+        <div class="div-tipo"><span>Tipo de publicación:</span> {{item.tipo}}</div>
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse-' + item.id" aria-expanded="false" [attr.aria-controls]="'flush-collapse-' + item.id">
+            {{item.nombre}}
+          </button>
+        </h2>
+        <div [id]="'flush-collapse-' + item.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="div-items">{{item.descripcion}} </div>
+          <span *ngIf="item.comentarios===true" class="span-comentarios">Comentarios</span>
+          <ul class="list-group" *ngIf="item.comentarios===true">
+            <li class="list-group-item">
+              <ul class="list-group" *ngFor="let observacion of item.Observaciones">
+                <li class="list-group-item li-nombre">{{observacion.nombre}}</li>
+                <li class="list-group-item">{{observacion.texto}}</li>
+                <li class="list-group-item li-fecha">{{observacion.fecha}}</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="form-floating">
+                <textarea class="form-control" cols="50" rows="10" [(ngModel)]="Inputcomentarios[item.id]" placeholder="Escribe aquí"></textarea>
+                <label for="floatingTextarea">Escribir comentario</label>
+                <button type="button" class="btn btn-primary btn-comentar" (click)="this.Comentar(item.id)">Enviar Comentario</button>
+              </div>
+            </li>
+          </ul>
+          <div class="div-items">Fecha Publicación: {{item.fechaCreacion}} </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+
+</div>

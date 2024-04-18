@@ -1,0 +1,32 @@
+<div class="info">
+    <h1>Registro de cursos</h1>
+    <div class="cuerpo">
+        <div class="row g-3 w-75">
+            <div class="mb-3">
+              <label for="validationDefault01" class="form-label ">Nombre</label>
+              <input type="text" class="form-control" [(ngModel)]="this.curso.nombre"  placeholder="Ingrese el nombre del cruso">
+            </div>
+            <div class="mb-3">
+                <label for="validationDefault01" class="form-label ">Descripción</label>
+                <textarea type="text" class="form-control" [(ngModel)]="this.curso.descripcion" placeholder="Escribre aquí"></textarea>
+              </div>
+              <div class="col-md-6">
+                <label for="validationDefault04" class="form-label">Estado</label>
+                <select class="form-select" [(ngModel)]="this.curso.estado">
+                  <option value="activar">Activar</option>
+                  <option value="desactivar">Desactivar</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="validationDefault05" class="form-label">Imagen del curso</label>
+                <input type="file" accept="image/*" [(ngModel)]="this.curso.imagen" class="form-control">
+              </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="button" (click)="crear()">Crear Curso</button>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
